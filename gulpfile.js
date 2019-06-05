@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var { pararel } = require('gulp');
 var psi = require('psi');
 var site = 'http://www.html5rocks.com';
 var key = '';
@@ -8,7 +8,7 @@ var key = '';
 // we recommend registering for your own API key. For more info:
 // https://developers.google.com/speed/docs/insights/v2/getting-started
 
-gulp.task('mobile', function () {
+function mobile () {
     return psi(site, {
         // key: key
         nokey: 'true',
@@ -17,9 +17,9 @@ gulp.task('mobile', function () {
         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
         console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
     });
-});
+}
 
-gulp.task('desktop', function () {
+function desktop () {
     return psi(site, {
         nokey: 'true',
         // key: key,
@@ -27,6 +27,8 @@ gulp.task('desktop', function () {
     }).then(function (data) {
         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
     });
-});
+}
 
-gulp.task('default', ['mobile']);
+exports.mobile = mobile;
+exports.desktop = desktop;
+exports.default = mobile;
