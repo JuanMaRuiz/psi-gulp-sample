@@ -7,23 +7,23 @@ var key = '';
 // we recommend registering for your own API key. For more info:
 // https://developers.google.com/speed/docs/insights/v2/getting-started
 
-function mobile () {
+const mobile = () => {
     return psi(site, {
         // key: key
         nokey: 'true',
         strategy: 'mobile',
-    }).then(function (data) {
+    }).then(data => {
         console.log(`Speed score: ${data.ruleGroups.SPEED.score}`);
         console.log(`Usability score: ${data.ruleGroups.USABILITY.score}`);
     });
 }
 
-function desktop () {
+const desktop = () => {
     return psi(site, {
         nokey: 'true',
         // key: key,
         strategy: 'desktop',
-    }).then(function (data) {
+    }).then(data => {
         console.log(`Speed score: ${data.ruleGroups.SPEED.score}`);
     });
 }
