@@ -1,4 +1,3 @@
-var { pararel } = require('gulp');
 var psi = require('psi');
 var site = 'http://www.html5rocks.com';
 var key = '';
@@ -14,8 +13,8 @@ function mobile () {
         nokey: 'true',
         strategy: 'mobile',
     }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-        console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
+        console.log(`Speed score: ${data.ruleGroups.SPEED.score}`);
+        console.log(`Usability score: ${data.ruleGroups.USABILITY.score}`);
     });
 }
 
@@ -25,7 +24,7 @@ function desktop () {
         // key: key,
         strategy: 'desktop',
     }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+        console.log(`Speed score: ${data.ruleGroups.SPEED.score}`);
     });
 }
 
